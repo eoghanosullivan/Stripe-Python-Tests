@@ -1,9 +1,10 @@
-import main
+import stripe
+from globalVariables import apiKey
 
 def createPi():
     stripe.api_key=apiKey
     amount = input("Enter how much you wish to charge ")
-    pmid= raw_input("Enter payment method ")
+    pmid= input("Enter payment method ")
     
     pi=stripe.PaymentIntent.create(
     amount=amount,
@@ -12,23 +13,19 @@ def createPi():
     capture_method="automatic",
     confirm="true",
         )
-    print pi
+    print(pi)
     
 def listPi():
-    stripe.api_key=main.apiKey
+    stripe.api_key=apiKey
     limitPi = input("Enter how many charges you wish to list ")
     lstPi=stripe.PaymentIntent.list(limit=limitPi)
     
-    print lstPi
-
+    print(lstPi)
 
 def retreiveCharge():
-	paymentIntent_id = input("Enter Payment Intent ID: ")
-        stripe.api_key=apiKey
-        
-        charge = stripe.PaymentIntent.retrieve(
-          paymentIntent_id,
-          )
-    
-        print charge
+    stripe.api_key=apiKey
+    paymentIntent_id = input("Enter Payment Intent ID: ")
+    charge = stripe.PaymentIntent.retrieve(
+        paymentIntent_id)
+    print(charge)
         
