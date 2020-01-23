@@ -39,6 +39,6 @@ def connect():
     elif chargeChoice=="3":
         lstAccount()
     else:
-        print("Still in testing")
+        print("Still in dev")
         
 options()
