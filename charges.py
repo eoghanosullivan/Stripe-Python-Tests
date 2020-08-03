@@ -6,7 +6,7 @@ def chargeOption():
     choice = input("Choose which function you wish to use -- ")
     if choice == "1":
         createPi()
-    elif choice == 2:
+    elif choice == "2":
         listPi()
     elif choice == 3:
         print("Still in testing")
@@ -34,7 +34,7 @@ def listPi():
     lstPi = stripe.PaymentIntent.list(limit=limitPi)
 
     for pi in lstPi:
-        print(p.id)
+        print(pi.id)
 
 
 def retreiveCharge():
